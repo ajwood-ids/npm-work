@@ -5,7 +5,7 @@ describe("Our new site", function(){
     it("has a nice message", function(done){
         request
             .get("/")
-            .expect("Hello World")
+            .expect("Hello to the World")
             .end(done);
     });
 });

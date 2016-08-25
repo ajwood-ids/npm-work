@@ -1,7 +1,7 @@
 var app = module.exports = require("koa")();
 
 app.use(function *(){
-    this.body = "Hello World";
+    this.body = "Hello to the World";
 });
 
 if(!module.parent){ 
