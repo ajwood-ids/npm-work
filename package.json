@@ -35,8 +35,9 @@
     "version:patch": "npm version patch",
     "push:origin": "git push --tags origin HEAD:master",
     "push:heroku": "git push heroku master",
+    "push": "push:origin && push:heroku",
     "launch:prod": "heroku open stupidlittletestsite",
-    "deploy:prod": "npm run test:deploy -s && npm run build -s && npm run version:patch",
+    "deploy:prod": "npm run test:deploy -s && npm run build -s && npm run version:patch && npm run push && npm run launch:prod",
     "test:deploy": "npm t -- -R dot"
   },
   "engines": {
