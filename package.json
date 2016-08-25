@@ -1,6 +1,6 @@
 {
   "name": "stupidlittletestsite",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "demo thing from pluralsite",
   "main": "index.js",
   "scripts": {
