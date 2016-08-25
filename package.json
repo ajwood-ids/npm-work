@@ -37,7 +37,7 @@
     "push:heroku": "git push heroku master",
     "push": "npm run push:origin && npm run push:heroku",
     "launch:prod": "heroku open stupidlittletestsite",
-    "deploy:prod": "npm run test:deploy -s && npm run build -s && npm run version:patch && npm run push && npm run launch:prod",
+    "deploy:prod": "npm run test:deploy -s && npm run build -s && npm run version:patch -s && npm run push -s && npm run launch:prod -s",
     "test:deploy": "npm t -- -R dot"
   },
   "engines": {
