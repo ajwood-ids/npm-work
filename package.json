@@ -1,0 +1,66 @@
+{
+  "name": "stupidlittletestsite",
+  "version": "1.0.1",
+  "description": "demo thing from pluralsite",
+  "main": "index.js",
+  "scripts": {
+    "pretest": "npm run compile && npm run lint",
+    "test": "mocha test -u bdd -R spec",
+    "posttest": "echo 'this happens after the tests'",
+    "start": "node index.js",
+    "start:dev": "node index.js 4000",
+    "stop": "echo \"stop script\"",
+    "restart": "echo \"restart script\"",
+    "greet": "echo  'hello!'",
+    "pregreet": "echo 'before the greet",
+    "postgreet": "echo 'after the greet'",
+    "lint": "jshint index.js test --exclude lib",
+    "clean": "rimraf lib/*",
+    "compile:coffee": "coffee --compile --output ./lib ./src/coffeescripts",
+    "compile:ts": "tsc --outDir ./lib --module commonjs ./src/typescripts/tsCode.ts",
+    "compile": "npm run compile:coffee && npm run compile:ts",
+    "precompile": "npm run clean",
+    "build:less": "lessc client/less/demo.less public/css/site.css",
+    "build:bundle": "browserify ./client/js/app.js | uglifyjs -mc > ./public/js/bundle.js",
+    "build": "npm run build:less && npm run build:bundle",
+    "build:clean": "rimraf public/css/*, public/js/*",
+    "prebuild": "npm run build:clean",
+    "watch:test": "npm run test -- -w -R min",
+    "watch:lint": "watch 'run stop' .",
+    "watch:server": "nodemon --ignore client --ignore public index.js",
+    "watch:coffee": "coffee --compile -w --output ./lib ./src/coffeescripts",
+    "watch:ts": "tsc -w --outDir ./lib --module commonjs ./src/typescript/tsCode.ts",
+    "watch:bundle": "watchify ./client/js/app.js -o ./public/js/bundle.js -dv",
+    "version:major": "npm version major",
+    "version:minor": "npm version minor",
+    "version:patch": "npm version patch"
+  },
+  "jshintConfig": {
+    "esnext": "true",
+    "noyield": "true"
+  },
+  "keywords": [
+    "npm",
+    "scripting"
+  ],
+  "author": "me",
+  "license": "MIT",
+  "devDependencies": {
+    "browserify": "^13.1.0",
+    "coffee-script": "^1.10.0",
+    "jshint": "^2.9.3",
+    "less": "^2.7.1",
+    "mocha": "^3.0.2",
+    "nodemon": "^1.10.2",
+    "rimraf": "^2.5.4",
+    "should": "^11.1.0",
+    "supertest": "^2.0.0",
+    "typescript": "^1.8.10",
+    "uglifyjs": "^2.4.10",
+    "watch": "^0.19.2",
+    "watchify": "^3.7.0"
+  },
+  "dependencies": {
+    "koa": "^1.2.1"
+  }
+}
