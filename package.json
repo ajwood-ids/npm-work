@@ -6,7 +6,6 @@
   "scripts": {
     "pretest": "npm run compile && npm run lint",
     "test": "mocha test -u bdd -R spec",
-    "posttest": "echo 'this happens after the tests'",
     "start": "node index.js",
     "start:dev": "node index.js 4000",
     "stop": "echo \"stop script\"",
@@ -35,7 +34,10 @@
     "version:minor": "npm version minor",
     "version:patch": "npm version patch",
     "push:origin": "git push --tags origin HEAD:master",
-    "push:heroku": "git push heroku master"
+    "push:heroku": "git push heroku master",
+    "launch:prod": "heroku open stupidlittletestsite",
+    "deploy:prod": "npm run test:deploy -s && npm run build -s && npm run version:patch",
+    "test:deploy": "npm t -- -R dot"
   },
   "engines": {
     "node": "~6.3.0",
